@@ -1,0 +1,6 @@
+2020-06-30 23:49:38,230 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-06-30 23:49:51,417 INFO org.springframework.boot.StartupInfoLogger [main] Started RmsManagementApplication in 17.681 seconds (JVM running for 18.813)
+2020-06-30 23:54:00,864 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-06-30 23:54:17,906 INFO org.springframework.boot.StartupInfoLogger [main] Started RmsManagementApplication in 22.891 seconds (JVM running for 24.44)
+2020-06-30 23:56:14,199 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2020-06-30 23:56:29,042 INFO org.springframework.boot.StartupInfoLogger [main] Started RmsManagementApplication in 19.43 seconds (JVM running for 20.355)
