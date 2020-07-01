@@ -1,10 +1,12 @@
 package com.rmsMagement.RMSManagement.Controllers;
 
+
 import java.util.List;
 import java.util.Map;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,27 +36,18 @@ public class RateController {
 	}
 
 	@GetMapping("/rate/{id}")
-	public ResponseEntity<Rate> getUsersById(@PathVariable(value = "id") Long rateId) throws Exception {
+	public ResponseEntity<String> getUsersById(@PathVariable(value = "id") Long rateId) throws Exception {
 		Rate rateById = rateservice.searchRate(rateId);
 		final String uri = "https://surcharge.free.beeceptor.com/surcharge";
 
-		// Commenting because The given URI is not opening . showing 429 error- Too many
-		// requests.
-
-		/*
-		 * RestTemplate restTemplate = new RestTemplate(); String resultsurcharge =
-		 * restTemplate.getForObject(uri, String.class);
-		 * 
-		 * Gson gson = new Gson(); String jsonStringRate = gson.toJson(rateById);
-		 * 
-		 * JSONObject inputJson1 = new JSONObject(resultsurcharge); JSONObject
-		 * inputJson2 = new JSONObject(jsonStringRate);
-		 * 
-		 * JSONObject responseMergeResult = rateservice.mergerJSONObjects(inputJson1,
-		 * inputJson2);
-		 */
-
-		return ResponseEntity.ok(rateById);
+		  RestTemplate restTemplate = new RestTemplate();
+		  String resultsurcharge = restTemplate.getForObject(uri, String.class);
+		  
+		  Gson gson = new Gson(); 
+		  String jsonStringRate = gson.toJson(rateById);
+		  
+          JSONObject inputJson2 = new JSONObject(jsonStringRate);
+          return new ResponseEntity<String>(inputJson2+resultsurcharge, HttpStatus.OK);
 
 	}
 
